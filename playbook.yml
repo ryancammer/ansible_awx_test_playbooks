@@ -3,6 +3,7 @@
 - hosts: all
   tasks:
   - name: Creating an empty file
+    remote_user: vagrant
     file:
       path: "/tmp/somefile"
       state: touch
