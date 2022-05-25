@@ -3,8 +3,8 @@
 - hosts: all
   tasks:
   - name: Create a great file
-      ansible.builtin.command: touch /tmp/great_file
-      delegate_to: 127.0.0.1
+    ansible.builtin.command: touch /tmp/great_file
+    delegate_to: 127.0.0.1
   - name: Create some local file
     local_action: ansible.builtin.command touch /tmp/awesome_file
   - name: Do something local
