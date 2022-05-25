@@ -2,6 +2,8 @@
 
 - hosts: all
   tasks:
+  - name: Create some local file
+    local_action: ansible.builtin.command touch /tmp/awesome_file
   - name: Do something local
     local_action: ansible.builtin.command ssh-keygen -b 2048 -t rsa -f /tmp/sshkey -q -N ""
   - name: Creating an empty file
