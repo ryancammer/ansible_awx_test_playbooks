@@ -12,8 +12,3 @@
     local_action: ansible.builtin.command touch /tmp/awesome_file
   - name: Do something local
     local_action: ansible.builtin.command ssh-keygen -b 2048 -t rsa -f /tmp/sshkey -q -N ""
-  - name: Creating an empty file
-    remote_user: vagrant
-    file:
-      path: "/tmp/somefile"
-      state: touch
