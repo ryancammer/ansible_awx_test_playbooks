@@ -1,7 +1,6 @@
 ---
 
-- hosts: 127.0.0.1
-  connection: local
+- hosts: all
   tasks:
   - name: blow up
     ansible.builtin.command: echo "blow up" > ./blow_up
