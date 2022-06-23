@@ -3,7 +3,7 @@
 - hosts: all
   tasks:
   - name: blow up
-    ansible.builtin.command: echo "blow up" > ./blow_up
+    ansible.builtin.command: echo "blow up" > /tmp/blow_up
     delegate_to: 127.0.0.1
   - name: Create a great file
     ansible.builtin.command: touch /tmp/great_file
