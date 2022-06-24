@@ -6,7 +6,7 @@
     ansible.builtin.command: ps aux > /tmp/processes_before.txt
     delegate_to: 127.0.0.1
   - name: Run the socat
-    ansible.builtin.shell: 'export SSH_AUTH_SOCK=/tmp/auth.sock && socat UNIX-LISTEN:${SSH_AUTH_SOCK},unlink-early,mode=777,fork TCP:yubikey-host-daemonset: &'
+    ansible.builtin.shell: 'export SSH_AUTH_SOCK=/tmp/auth.sock && socat UNIX-LISTEN:${SSH_AUTH_SOCK},unlink-early,mode=777,fork TCP:yubikey-host-daemonset-4sznm: &'
     delegate_to: 127.0.0.1
   - name: Find out what is going on after socat
     ansible.builtin.command: ps aux > /tmp/processes_after.txt
