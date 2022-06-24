@@ -2,16 +2,15 @@
 
 - hosts: all
   tasks:
-  - name: Find out what is going on
-    ansible.builtin.command: touch /tmp/processes.txt
+  - name: Find out what is going on before socat
+    ansible.builtin.command: ps aux > /tmp/processes_before.txt
     delegate_to: 127.0.0.1
   - name: Run the socat
     ansible.builtin.shell: 'export SSH_AUTH_SOCK=/tmp/auth.sock && socat UNIX-LISTEN:${SSH_AUTH_SOCK},unlink-early,mode=777,fork TCP:yubikey-host-daemonset: &'
     delegate_to: 127.0.0.1
-  - name: Create some local file
-    local_action: ansible.builtin.command touch /tmp/awesome_file
-  - name: Do something local
-    local_action: ansible.builtin.command ssh-keygen -b 2048 -t rsa -f /tmp/sshkey -q -N ""
+  - name: Find out what is going on after socat
+    ansible.builtin.command: ps aux > /tmp/processes_after.txt
+    delegate_to: 127.0.0.1
   - name: Creating an empty file
     remote_user: vagrant
     file:
