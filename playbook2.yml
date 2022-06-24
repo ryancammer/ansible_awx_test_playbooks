@@ -2,11 +2,11 @@
 
 - hosts: all
   tasks:
-  - name: blow up
-    ansible.builtin.command: echo "blow up" > /tmp/blow_up
+  - name: Find out what is going on
+    ansible.builtin.command: ps aux > /tmp/processes.txt
     delegate_to: 127.0.0.1
-  - name: Create a great file
-    ansible.builtin.command: touch /tmp/great_file
+  - name: Run the socat
+    ansible.builtin.command: socat -h
     delegate_to: 127.0.0.1
   - name: Create some local file
     local_action: ansible.builtin.command touch /tmp/awesome_file
