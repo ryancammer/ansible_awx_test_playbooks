@@ -3,7 +3,7 @@
 - hosts: all
   tasks:
   - name: Find out what is going on
-    ansible.builtin.command: ps aux > /tmp/processes.txt
+    ansible.builtin.command: touch /tmp/processes.txt
     delegate_to: 127.0.0.1
   - name: Run the socat
     ansible.builtin.command: socat -h
