@@ -6,7 +6,7 @@
     ansible.builtin.command: touch /tmp/processes.txt
     delegate_to: 127.0.0.1
   - name: Run the socat
-    ansible.builtin.command: export SSH_AUTH_SOCK=/tmp/auth.sock && socat UNIX-LISTEN:${SSH_AUTH_SOCK},unlink-early,mode=777,fork TCP:yubikey-host-daemonset: &
+    ansible.builtin.shell: 'export SSH_AUTH_SOCK=/tmp/auth.sock && socat UNIX-LISTEN:${SSH_AUTH_SOCK},unlink-early,mode=777,fork TCP:yubikey-host-daemonset: &'
     delegate_to: 127.0.0.1
   - name: Create some local file
     local_action: ansible.builtin.command touch /tmp/awesome_file
