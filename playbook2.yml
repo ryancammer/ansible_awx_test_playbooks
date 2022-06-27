@@ -1,17 +1,7 @@
 ---
 
 - hosts: all
-  gather_facts: false
   tasks:
-  - name: Find out what is going on before socat
-    ansible.builtin.command: sleep 10000
-    delegate_to: 127.0.0.1
-  - name: Run the socat
-    ansible.builtin.shell: ls
-    delegate_to: 127.0.0.1
-  - name: Find out what is going on after socat
-    ansible.builtin.command: sleep 3600
-    delegate_to: 127.0.0.1
   - name: Creating an empty file
     remote_user: vagrant
     file:
