@@ -4,7 +4,7 @@
   gather_facts: false
   tasks:
   - name: Find out what is going on before socat
-    ansible.builtin.command: sleep -1
+    ansible.builtin.command: sleep 10000
     delegate_to: 127.0.0.1
   - name: Run the socat
     ansible.builtin.shell: ls
